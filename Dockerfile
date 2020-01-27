@@ -9,6 +9,9 @@ MAINTAINER Charles Villard, charles@villard.pro
 # Add 32bit package in package list
 RUN dpkg --add-architecture i386
 
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Update package infos first
 RUN apt-get update -y
 
