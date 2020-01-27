@@ -3,8 +3,8 @@
 # Author:  Yen-Chin, Lee <yenchin@weintek.com>
 # Command format: Instruction [arguments / command] ..
 
-FROM ubuntu:14.04
-MAINTAINER Yen-Chin, Lee, coldnew.tw@gmail.com
+FROM ubuntu:18.04
+MAINTAINER Charles Villard, charles@villard.pro
 
 # Add 32bit package in package list
 RUN dpkg --add-architecture i386
@@ -17,11 +17,9 @@ RUN apt-get update -y
 
 # Essentials
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib \
-     build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
-     xz-utils debianutils iputils-ping vim bc g++-multilib bash realpath
-
-# Graphical and Eclipse Plug-In Extras
-RUN apt-get install -y libsdl1.2-dev xterm
+    build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
+	xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
+	pylint3 xterm
 
 # Documentation
 RUN apt-get install -y make xsltproc docbook-utils fop dblatex xmlto
